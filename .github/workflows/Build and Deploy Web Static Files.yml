@@ -47,5 +47,10 @@ jobs:
         publish_branch: gh-pages
 
     - name: Print deployment URL
-      run: echo "🔗 预览地址: https://tiengming.github.io/mind-map/"
+      run: |
+        echo ""
+        echo "=============================="
+        echo "🔗 预览地址: https://tiengming.github.io/mind-map/"
+        echo "=============================="
+        echo ""
 
