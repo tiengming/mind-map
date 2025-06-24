@@ -25,8 +25,7 @@
     "vue-i18n": "^8.27.2",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2",
-    "xlsx": "^0.18.5",
-    "simple-mind-map": "file:../simple-mind-map"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
