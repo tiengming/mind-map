@@ -3,7 +3,7 @@ name: Build and Deploy Web + Core
 on:
   push:
     branches: [ main ]
-
+  workflow_dispatch:  # 👈 添加这行以支持手动运行
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
