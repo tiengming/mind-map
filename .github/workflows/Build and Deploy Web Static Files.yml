@@ -18,14 +18,7 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install dependencies for simple-mind-map
-        run: |
-          cd simple-mind-map
-          npm install
-          # 如果你有类型需求，可加 npm run types
-          # 如果你有 build 步骤（如生成 dist），请补充 npm run build
-
-      - name: Install dependencies for web
+      - name: Install dependencies (with local simple-mind-map)
         run: |
           cd web
           npm install
