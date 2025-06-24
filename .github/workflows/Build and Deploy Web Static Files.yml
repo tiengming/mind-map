@@ -17,10 +17,15 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install dependencies
+    - name: Install web dependencies
       run: |
         cd web
         npm ci
+
+    - name: Install simple-mind-map dependencies
+      run: |
+        cd simple-mind-map
+        npm install
 
     - name: Build simple-mind-map core library
       run: |
