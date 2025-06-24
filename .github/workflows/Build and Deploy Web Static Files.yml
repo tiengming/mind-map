@@ -39,8 +39,13 @@ jobs:
         npm run build
 
     - name: Deploy to GitHub Pages
+      id: deploy
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./web/dist
+        publish_dir: ./dist
         publish_branch: gh-pages
+
+    - name: Print deployment URL
+      run: echo "🔗 预览地址: https://tiengming.github.io/mind-map/"
+
