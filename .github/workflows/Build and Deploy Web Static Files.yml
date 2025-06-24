@@ -1,40 +1,40 @@
-name: Build and Deploy Web Static Files
+name: Build and Deploy Web + Core
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
 
-      - name: Install dependencies (with local simple-mind-map)
-        run: |
-          cd web
-          npm install
+    - name: Install dependencies
+      run: |
+        cd web
+        npm ci
 
-      - name: Build web project
-        run: |
-          cd web
-          npm run build
+    - name: Build simple-mind-map core library
+      run: |
+        cd web
+        npm run buildLibrary
 
-      - name: Copy index.html to dist
-        run: |
-          cp web/index.html web/dist/index.html || true
+    - name: Build web app
+      run: |
+        cd web
+        npm run build
 
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web/dist
-          publish_branch: gh-pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./web/dist
+        publish_branch: gh-pages
